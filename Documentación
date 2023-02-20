@@ -1,0 +1,41 @@
+Propósito:
+El propósito de este script es automatizar la tediosa tarea de fijar precios en Neopets, especialmente para aquellos usuarios que no poseen una cuenta premium. Esta tarea suele requerir la búsqueda manual del Buscador de Tiendas varias veces, tomar nota de los distintos precios, y luego mover los artículos a la tienda para establecer sus precios. Al aprovechar la automatización, este script simplifica el proceso, permitiendo una fijación de precios más eficiente y precisa de los artículos. Esto no solo ahorra tiempo, sino que también mejora la experiencia general del usuario en la plataforma.
+
+Inputs:
+No se especifica en el código una función que reciba un input explícitamente. Se podría considerar que la clase To_Shop es la entrada de todo el código.
+
+Outputs:
+Los outputs se encuentran en varias funciones de la clase To_Shop:
+
+La función get_inventory_html devuelve el HTML de la tabla de inventario de objetos de Neopets del usuario.
+La función convert_html_list devuelve una lista de los objetos del inventario del usuario, ya que toma el HTML de la tabla de inventario y extrae los nombres de los objetos.
+La función get_cheapest_price devuelve el precio mínimo del objeto consultado en la función shopwiz_search.
+La función price_avg imprime en la consola el precio promedio de la lista de objetos.
+
+Dependencias:
+-selenium
+-webdriver
+-expected_conditions
+-By
+-time
+-BeautifulSoup
+-csv
+-pandas
+-Select
+-re
+
+Todas las dependencias son librerías de Python que se deben importar al principio del código. En el código se utiliza Selenium para interactuar con el navegador y extraer información, BeautifulSoup para hacer web scraping, y csv y pandas para guardar y procesar datos. La dependencia re se utiliza para limpiar el precio mínimo extraído de la página de búsqueda del Shop Wizard.
+
+Uso:
+Para utilizar el script, simplemente ejecútelo desde la terminal con el comando "python to_shop.py". Antes de ejecutar el script, asegúrese de tener todos los objetos que desea transferir a la tienda en su inventario. Una vez que se ejecuta el script, transferirá todos los objetos de su inventario a la tienda. Tenga en cuenta que el script solo admite un máximo de 20 objetos en la tienda en cualquier momento.
+
+Ejemplo de uso:
+$ python to_shop.py
+
+Si tiene alguna pregunta o problema, consulte el archivo README o póngase en contacto con el desarrollador.
+
+Limitaciones:
+Aunque el script es funcional en la mayoría de los casos, es importante tener en cuenta algunas limitaciones. Una de ellas es que el script puede detenerse debido a problemas con los anuncios en la página de Neopets, los cuales a veces no se cargan completamente. Si esto sucede, se puede "destrabar" el script actualizando la página manualmente para que pueda continuar. Además, el script solo admite un máximo de 20 objetos en la tienda al mismo tiempo, por lo que es importante tener en cuenta esta limitación al planificar el uso del script.
+
+Mantenimiento:
+Para asegurarse de que el script funcione correctamente, es importante estar al tanto de las actualizaciones y cambios en la página de Neopets que puedan afectar su funcionamiento. Se recomienda revisar periódicamente el código y realizar pruebas para asegurarse de que sigue siendo compatible con la página web. También es importante tener en cuenta que el script puede dejar de funcionar si se realizan cambios en la estructura de la página de Neopets o en los procesos de la tienda virtual.
