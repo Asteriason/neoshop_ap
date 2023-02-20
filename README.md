@@ -40,3 +40,6 @@ price_avg(): calcula el precio mínimo y descuenta el 10% de un artículo buscan
 Para utilizar esta aplicación, es necesario modificar la parte del código donde se encuentra la llamada al método "run" con los datos de inicio de sesión del usuario. En la línea correspondiente, se deben reemplazar los valores "username" y "password" por el nombre de usuario y contraseña correspondientes.
 
 Por otro lado, para ejecutar la aplicación exitosamente, es suficiente con abrir una terminal y escribir el comando "python to_shop.py" en el directorio donde se encuentra el archivo de la aplicación. De esta forma, se iniciará el programa y se podrá utilizar según las instrucciones correspondientes.
+
+Video del script en funcionamiento:
+https://youtu.be/kXZn2fYEH-Q
