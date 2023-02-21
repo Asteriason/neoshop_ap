@@ -64,10 +64,10 @@ class To_Shop:
         end_text = '''<tr bgcolor="#ffffff"><td colspan="7">&nbsp'''
         start_index = html_code.find(start_text)
         end_index = html_code.find(end_text)
-        tabla_html = html_code[start_index:end_index]
+        table_html = html_code[start_index:end_index]
         with open("inventorytemplisthtml.txt", "w") as inventorytemplist:
             inventorytemplist.write(html_code)
-        return tabla_html
+        return table_html
 
     def convert_html_list(self, inventory_html):
         # Convertir el código HTML en una lista de objetos
@@ -117,20 +117,20 @@ class To_Shop:
         end_text = '''</div></li>'''
         start_index = swresults_html.find(start_text)
         end_index = swresults_html.find(end_text)
-        precio_min = swresults_html[start_index:end_index]
-        precio_str = precio_min
-        if not precio_min:
-            precio_min = ""
-            return precio_min
+        price_min = swresults_html[start_index:end_index]
+        price_str = price_min
+        if not price_min:
+            price_min = ""
+            return price_min
         else:
             # Eliminamos los caracteres no numéricos y convertimos a entero
-            precio_digitos = re.sub('\D', '', precio_str)  # remove non-digit characters
+            precio_digitos = re.sub('\D', '', price_str)  # remove non-digit characters
             precio_int  = int(precio_digitos)  # convert to integer
             print(precio_int)
             return precio_int
 
     def price_min(self):
-        preciotemp_list = []
+        temprice_list = []
         i = 0
         # Realizamos 8 búsquedas
         while i < 8:
@@ -138,17 +138,14 @@ class To_Shop:
             # Refrescamos la página del Shop Wizard para obtener nuevos resultados
             refreshwiz.click()
             time.sleep(1)
-            preciotemp = self.get_cheapest_price()
-            preciotemp_list.append(preciotemp)
+            temprice = self.get_cheapest_price()
+            temprice_list.append(temprice)
             i+=1
 
-        df = pd.DataFrame(preciotemp_list, columns=['price'])
-        print(df)
+        df = pd.DataFrame(temprice_list, columns=['price'])
         minprice = df['price'].min()
         buyprice = minprice - minprice*0.1
         buyprice = round(buyprice)
-
-        print(preciotemp_list)
         print("Precio mínimo -10%: " + str(buyprice))
         return buyprice
 
@@ -160,18 +157,18 @@ class To_Shop:
             self.shopwiz_search(item)
             print("Precio de " + item)
             # Obtiene el precio mas bajo del item
-            precio_min = self.get_cheapest_price()
-            while not precio_min:
+            price_min = self.get_cheapest_price()
+            while not price_min:
                 # Si no se encuentra el precio, ejecuta la busqueda de nuevo
                 print("Precio no encontrado. Ejecutando búsqueda de Shop Wizard de nuevo...")
                 time.sleep(1)
                 self.get_inventory_html()
                 self.shopwiz_search(item)
                 print("Precio de " + item)
-                precio_min = self.get_cheapest_price()
+                price_min = self.get_cheapest_price()
             # Obtiene el precio minimo de compra
-            precio_tienda =  self.price_min()
-            price_list.append(precio_tienda)
+            shop_price =  self.price_min()
+            price_list.append(shop_price)
         print(price_list)
         return price_list
 
@@ -291,5 +288,3 @@ while True:
         break  # Sal del bucle si el código se ejecuta correctamente
     except WebDriverException:
         driver.quit()  # Cierra el driver si un error ocurre
-#To_Shop = To_Shop()
-#To_Shop.run("username", "password")
