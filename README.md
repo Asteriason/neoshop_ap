@@ -34,7 +34,7 @@ shopwiz_search(item): busca un artículo en el sitio web utilizando la función 
 
 get_cheapest_price(): devuelve el precio más bajo encontrado por el "Shop Wizard" para el artículo buscado.
 
-price_avg(): calcula el precio mínimo y descuenta el 10% de un artículo buscando su precio en el "Shop Wizard" varias veces.
+price_min(): calcula el precio mínimo y descuenta el 10% de un artículo buscando su precio en el "Shop Wizard" varias veces.
 
 
 Para utilizar esta aplicación, es necesario modificar la parte del código donde se encuentra la llamada al método "run" con los datos de inicio de sesión del usuario. En la línea correspondiente, se deben reemplazar los valores "username" y "password" por el nombre de usuario y contraseña correspondientes.

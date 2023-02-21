@@ -10,7 +10,7 @@ Los outputs se encuentran en varias funciones de la clase To_Shop:
 La función get_inventory_html devuelve el HTML de la tabla de inventario de objetos de Neopets del usuario.
 La función convert_html_list devuelve una lista de los objetos del inventario del usuario, ya que toma el HTML de la tabla de inventario y extrae los nombres de los objetos.
 La función get_cheapest_price devuelve el precio mínimo del objeto consultado en la función shopwiz_search.
-La función price_avg imprime en la consola el precio promedio de la lista de objetos.
+La función price_min imprime en la consola el precio mínimo -10% de cada objeto.
 
 Dependencias:
 -selenium
