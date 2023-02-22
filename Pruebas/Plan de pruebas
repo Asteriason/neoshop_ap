@@ -1,0 +1,76 @@
+Plan de prueba para TestToShop:
+
+Prueba login_success:
+Entrada: nombre de usuario y contraseña
+Rendimiento esperado:
+La URL actual debe ser "https://www.neopets.com/index.phtml"
+El título de la página debe ser "¡Bienvenido a Neopets!"
+
+Prueba get_inventory_html:
+Entrada: nombre de usuario y contraseña
+Rendimiento esperado:
+La salida debe contener '''<td align="left">'''.
+
+Prueba convert_html_list:
+Entrada: ejemplo de código HTML
+Rendimiento esperado:
+La salida debe contener ['Nombre del elemento aquí', 'Otro nombre del elemento'] o ['Otro nombre del elemento', 'Nombre del elemento aquí'].
+
+Prueba submit_shopitems:
+Entrada: nombre de usuario y contraseña
+Rendimiento esperado:
+La página enviada no debe contener '''<input type="radio" name="radio_arr[1]" value="deposit" ondblclick="this.checked = false; checkall[1]''.
+
+Prueba shopwiz_search:
+Entrada: nombre del elemento
+Rendimiento esperado:
+La URL actual debe ser f"https://www.neopets.com/shops/wizard.phtml?string=item+name".
+
+Prueba precio_min:
+Entrada: lista de precios
+Rendimiento esperado:
+La salida debe contener "Precio mínimo -10%: 90".
+
+Prueba get_shop_numbers:
+Entrada: contenido HTML de un archivo
+Rendimiento esperado:
+El resultado debe ser una lista que contenga 'Lightning Wand', 'Mau Codestone', 'Catamara', 'Pant Devil Punch Bag', 'Splime', 'Reject Curly Shaped Sand' y 'Biyako'.
+
+Prueba get_item_dict:
+Entrada: dos listas de elementos
+Rendimiento esperado:
+El resultado debe ser una lista de tuplas, donde el primer elemento de cada tupla es el nombre de un artículo y el segundo elemento es el recuento de ese artículo en la tienda.
+
+Prueba get_price_dict:
+Entrada: lista de precios y una tupla de artículos y sus conteos
+Rendimiento esperado:
+La salida debe ser una tupla de tuplas, donde el primer elemento de cada tupla es una representación de cadena de un precio y el segundo elemento es el recuento del artículo correspondiente.
+
+Casos de prueba:
+
+test_login_success
+Prueba que el usuario puede iniciar sesión con un nombre de usuario y contraseña válidos y navegar a la página correcta.
+
+test_get_inventory_html
+Prueba que la función recupera el HTML del inventario correctamente.
+
+test_convert_html_list
+Prueba que la función convierte HTML en una lista de elementos correctamente.
+
+test_submit_shopitems
+Prueba que la función envía los artículos de la tienda correctamente.
+
+test_shopwiz_search
+Prueba que la función navega a la página de resultados de búsqueda correcta.
+
+prueba_precio_min
+Prueba que la función calcula correctamente el precio mínimo.
+
+test_get_shop_numbers
+Prueba que la función recupera correctamente los números de tienda.
+
+test_get_item_dict
+Prueba que la función devuelve el diccionario de elementos correcto.
+
+test_get_price_dict
+Prueba que la función devuelve el diccionario de precios correcto.
